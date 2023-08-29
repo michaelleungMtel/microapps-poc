@@ -9,23 +9,62 @@ ChunkManager.configure({
   resolveRemoteChunk: async (chunkId, parentId) => {
     let url;
 
+    // switch (parentId) {
+    //   case 'app1':
+    //     url = `http://localhost:9000/${chunkId}.chunk.bundle`;
+    //     break;
+    //   case 'app2':
+    //     url = `http://localhost:9001/${chunkId}.chunk.bundle`;
+    //     break;
+    //   case 'main':
+    //   default:
+    //     url =
+    //       {
+    //         // containers
+    //         app1: 'http://localhost:9000/app1.container.bundle',
+    //         app2: 'http://localhost:9001/app2.container.bundle',
+    //       }[chunkId] ?? `http://localhost:8081/${chunkId}.chunk.bundle`;
+    //     break;
+    // }
+
+
+    // switch (parentId) {
+    //   case 'app1':
+    //     url = `http://10.0.2.2:9000/${chunkId}.chunk.bundle`;
+    //     break;
+    //   case 'app2':
+    //     url = `http://10.0.2.2:9001/${chunkId}.chunk.bundle`;
+    //     break;
+    //   case 'main':
+    //   default:
+    //     url =
+    //       {
+    //         // containers
+    //         app1: 'http://10.0.2.2:9000/app1.container.bundle',
+    //         app2: 'http://10.0.2.2:9001/app2.container.bundle',
+    //       }[chunkId] ?? `http://10.0.2.2:8081/${chunkId}.chunk.bundle`;
+    //     break;
+    // }
+
+
     switch (parentId) {
       case 'app1':
-        url = `http://localhost:9000/${chunkId}.chunk.bundle`;
+        url = `http://192.168.10.189:9000/${chunkId}.chunk.bundle`;
         break;
       case 'app2':
-        url = `http://localhost:9001/${chunkId}.chunk.bundle`;
+        url = `http://192.168.10.189:9001/${chunkId}.chunk.bundle`;
         break;
       case 'main':
       default:
         url =
           {
             // containers
-            app1: 'http://localhost:9000/app1.container.bundle',
-            app2: 'http://localhost:9001/app2.container.bundle',
-          }[chunkId] ?? `http://localhost:8081/${chunkId}.chunk.bundle`;
+            app1: 'http://192.168.10.189:9000/app1.container.bundle',
+            app2: 'http://192.168.10.189:9001/app2.container.bundle',
+          }[chunkId] ?? `http://192.168.10.189:8081/${chunkId}.chunk.bundle`;
         break;
     }
+    
 
     return {
       url,
